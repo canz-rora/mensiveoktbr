@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Mensive 💗</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Trebuchet MS", sans-serif;
+    background: linear-gradient(135deg, #ffe1ee, #ffc4df, #fff0f6);
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: #d63384;
+}
+
+.page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    width: 100%;
+    max-width: 430px;
+    padding: 35px 25px;
+    border-radius: 30px;
+    text-align: center;
+    box-shadow: 0 10px 35px rgba(214, 51, 132, 0.15);
+    border: 2px solid white;
+    position: relative;
+    z-index: 2;
+    animation: appear 0.8s ease;
+}
+
+h1 {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+p {
+    line-height: 1.8;
+}
+
+.emoji {
+    font-size: 65px;
+    margin-bottom: 15px;
+    animation: heartbeat 1.5s infinite;
+}
+
+button {
+    border: none;
+    padding: 14px 25px;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #ff65a3, #ff91bb);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(255, 101, 163, 0.3);
+    transition: transform 0.2s;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+#runButton {
+    position: relative;
+    margin-top: 25px;
+    z-index: 5;
+}
+
+.small {
+    font-size: 13px;
+    color: #b84c7d;
+    margin-top: 15px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Halaman ucapan */
+
+#lovePage .card {
+    max-width: 500px;
+}
+
+.message {
+    text-align: left;
+    background: #fff3f8;
+    padding: 20px;
+    border-radius: 20px;
+    margin: 20px 0;
+    white-space: pre-line;
+}
+
+.music-button {
+    margin-top: 10px;
+    background: #e75494;
+}
+
+.signature {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* Animasi */
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.12); }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.heart {
+    position: fixed;
+    top: -30px;
+    z-index: 1;
+    pointer-events: none;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Tampilan HP */
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 26px;
+    }
+
+    .card {
+        padding: 28px 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HALAMAN PERTAMA -->
+
+<section class="page" id="startPage">
+    <div class="card">
+
+        <div class="emoji">💗</div>
+
+        <h1>Hai, Sayangku!</h1>
+
+        <p>
+            Aku punya sesuatu buat kamu nih.
+            <br>
+            Tapi kamu harus pencet tombolnya dulu yaa 🤭
+        </p>
+
+        <button id="runButton" onclick="moveButton()">
+            Coba Pencet 💕
+        </button>
+
+        <p class="small" id="hint">
+            Hehehe, coba aja dulu 😋
+        </p>
+
+    </div>
+</section>
+
+
+<!-- HALAMAN KEDUA -->
+
+<section class="page hidden" id="lovePage">
+    <div class="card">
+
+        <div class="emoji">💖</div>
+
+        <h1>Happy Mensive! 💐</h1>
+
+        <p>
+            Happy mensive, sayangku cintakuuu! 💗
+        </p>
+
+        <div class="message" id="loveMessage">Untuk kamu, seseorang yang selalu punya tempat
+spesial di hatiku. 💕
+
+Makasih yaa udah hadir di hidupku.
+Makasih udah bertahan sama aku,
+udah mau berbagi cerita, tawa,
+dan semua hal kecil yang berarti.
+
+Aku mungkin belum jadi pasangan
+yang sempurna, tapi aku mau terus
+belajar jadi lebih baik buat kita.
+
+Semoga kita bisa terus bersama,
+saling mengerti, saling menjaga,
+dan menciptakan lebih banyak
+kenangan indah berdua. 🥹💗
+
+Aku sayang kamu, hari ini,
+besok, dan semoga seterusnya. 💞
+
+Happy mensive, my favorite person! 💐</div>
+
+        <p>
+            Semoga hubungan kita selalu
+            dipenuhi cinta dan kebahagiaan. 🫶
+        </p>
+
+        <button class="music-button" onclick="toggleMusic()">
+            🎵 Putar / Jeda Lagu
+        </button>
+
+        <p class="small" id="musicStatus">
+            Tekan tombol untuk memutar lagu 💗
+        </p>
+
+        <p class="signature">
+            With Love, Yours Truly 💌
+        </p>
+
+    </div>
+</section>
+
+
+<!-- AUDIO -->
+<audio id="music" loop preload="none">
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+
+<script>
+let attempts = 0;
+
+const runButton = document.getElementById("runButton");
+const startPage = document.getElementById("startPage");
+const lovePage = document.getElementById("lovePage");
+const hint = document.getElementById("hint");
+
+const music = document.getElementById("music");
+const musicStatus = document.getElementById("musicStatus");
+
+
+function moveButton() {
+    attempts++;
+
+    if (attempts <= 3) {
+
+        const messages = [
+            "Eits, meleset! Coba lagi sayang 🤭",
+            "HAHAHA, kabur lagi! Sekali lagi 😝",
+            "Yahhh, masih belum bisa nih! 😂"
+        ];
+
+        hint.textContent = messages[attempts - 1];
+
+        // Pindahkan tombol ke posisi acak di layar.
+        runButton.style.position = "fixed";
+        runButton.style.margin = "0";
+
+        const maxX = Math.max(0, window.innerWidth - runButton.offsetWidth - 20);
+        const maxY = Math.max(0, window.innerHeight - runButton.offsetHeight - 20);
+
+        const x = Math.random() * maxX;
+        const y = Math.random() * maxY;
+
+        runButton.style.left = x + "px";
+        runButton.style.top = y + "px";
+
+    } else {
+
+        // Setelah tombol dicoba untuk keempat kalinya,
+        // buka halaman ucapan.
+        startPage.classList.add("hidden");
+        lovePage.classList.remove("hidden");
+
+        window.scrollTo(0, 0);
+
+        createHearts();
+
+    }
+}
+
+
+// Musik diputar setelah tombol musik ditekan.
+function toggleMusic() {
+
+    if (music.paused) {
+
+        music.play()
+            .then(() => {
+                musicStatus.textContent = "Lagu sedang diputar 🎶💗";
+            })
+            .catch(() => {
+                musicStatus.textContent =
+                    "File music.mp3 belum tersedia atau gagal diputar.";
+            });
+
+    } else {
+
+        music.pause();
+        musicStatus.textContent = "Lagu dijeda 🎵";
+
+    }
+}
+
+
+// Animasi hati berjatuhan.
+let heartInterval;
+
+function createHearts() {
+
+    if (heartInterval) return;
+
+    heartInterval = setInterval(() => {
+
+        const heart = document.createElement("div");
+
+        heart.className = "heart";
+
+        const hearts = ["💗", "💖", "💕", "💘", "💞", "🌸"];
+
+        heart.textContent =
+            hearts[Math.floor(Math.random() * hearts.length)];
+
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = (15 + Math.random() * 20) + "px";
+
+        const duration = 3 + Math.random() * 4;
+
+        heart.style.animationDuration = duration + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, duration * 1000);
+
+    }, 350);
+
+}
+</script>
+
+</body>
+</html>
